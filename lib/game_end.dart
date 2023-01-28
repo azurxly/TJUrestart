@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:restart/not_done.dart';
-import 'game_mode.dart';
+import 'package:flutter/services.dart';
 import 'main.dart';
 
 class GameEnd extends StatefulWidget {
@@ -50,7 +49,7 @@ class _GameEndState extends State<GameEnd> {
             ),
             GestureDetector(
               onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(builder: (context) => const NotDone()));
+                SystemNavigator.pop;
               },
               child: Container(
                 decoration: BoxDecoration(
