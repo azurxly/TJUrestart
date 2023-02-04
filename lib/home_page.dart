@@ -1,5 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:restart/game_mode.dart';
+import 'package:restart/beginpage.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -12,41 +13,61 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        alignment: FractionalOffset.center,
+    return GestureDetector(
+      onTap: () {
+      Navigator.of(context).push(MaterialPageRoute(builder: (context) => const BeginPage()));
+    },
+      child:Container(
+        color: Colors.black,
+        padding: EdgeInsets.fromLTRB(35, 50, 35, 50),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            Container(
-              decoration: BoxDecoration(
-                border: Border.all(width: 3,color: Colors.black),
-                borderRadius: const BorderRadius.all(Radius.circular(10))
-              ),
-              child: const Text(
-                '\n\n'
-                "天大重开模拟器    "
-                '\n\n',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                fontSize: 36.0,
-                height: 1.2,
-                ),
-              ),
+          children: [
+            SizedBox(
+              height: 50,
             ),
-            GestureDetector(
-              onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(builder: (context) => const GameMode()));
-              },
-              child: Container(
-                decoration: BoxDecoration(
-                    border: Border.all(width: 3,color: Colors.black),
-                    borderRadius: const BorderRadius.all(Radius.circular(10))
+
+           SizedBox(
+             height: 129,
+
+             child: Container(
+               child:
+               Text(
+                 "如果再来一次……             "
+                     '\n'
+                     "如果……                ",
+
+                 textAlign:TextAlign.left ,
+                 style: TextStyle(
+                     color:Colors.white,
+                     fontSize: 25,
+                     fontWeight: FontWeight.bold
+
+                 ),
+               ),
+             ),
+           ),
+
+            Image.asset("assets/images/page1.jpg",
+              fit: BoxFit.cover,
+
+            ),
+            Spacer(),
+            Container(
+              child:
+              Text(
+                "点击空白处继续",
+
+
+                style: TextStyle(
+                    color:Colors.grey,
+                    fontSize: 13,
+                    fontWeight: FontWeight.bold
+
                 ),
-                child: const Text('\n\n''立即重开！        ''\n\n',textAlign: TextAlign.center,style: TextStyle(height: 0.5,fontSize: 24.0)),
               ),
             ),
           ],
+
         ),
       ),
     );
