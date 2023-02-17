@@ -15,8 +15,8 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-      Navigator.of(context).push(MaterialPageRoute(builder: (context) => const BeginPage()));
-    },
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => const BeginPage()));
+      },
       child:Container(
         color: Colors.black,
         padding: EdgeInsets.fromLTRB(35, 50, 35, 50),
@@ -26,26 +26,26 @@ class _HomePageState extends State<HomePage> {
               height: 50,
             ),
 
-           SizedBox(
-             height: 129,
+            SizedBox(
+              height: 129,
 
-             child: Container(
-               child:
-               Text(
-                 "如果再来一次……             "
-                     '\n'
-                     "如果……                ",
+              child: Container(
+                child:
+                Text(
+                  "如果再来一次……             "
+                      '\n'
+                      "如果……                ",
 
-                 textAlign:TextAlign.left ,
-                 style: TextStyle(
-                     color:Colors.white,
-                     fontSize: 25,
-                     fontWeight: FontWeight.bold
+                  textAlign:TextAlign.left ,
+                  style: TextStyle(
+                      color:Colors.white,
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold
 
-                 ),
-               ),
-             ),
-           ),
+                  ),
+                ),
+              ),
+            ),
 
             Image.asset("assets/images/page1.jpg",
               fit: BoxFit.cover,

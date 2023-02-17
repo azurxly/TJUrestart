@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'dio.dart';
-import 'game_end.dart';
-import 'back_pack.dart';
 
+import 'back_pack.dart';
+import 'package:restart/loading_second.dart';
+import 'package:flutter/material.dart';
 class GameStart extends StatefulWidget {
   const GameStart({Key? key}) : super(key: key);
 
@@ -14,87 +14,89 @@ class _GameStartState extends State<GameStart> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        alignment: FractionalOffset.center,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children:[
-                Container(
-                  decoration: BoxDecoration(
-                      border: Border.all(width: 3,color: Colors.black),
-                      borderRadius: const BorderRadius.all(Radius.circular(10))
-                  ),
-                  child: const Text(
-                    "社交技能：114     \n\n"
-                    "知识技能：514     \n\n"
-                    "摸鱼技能：114     \n\n"
-                    "emo指数：514     ",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 18.0,
-                      height: 1,
-                    ),
-                  ),
-                ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => const BackPack()));
-                  },
-                  child: Container(
-                    decoration: BoxDecoration(
-                        border: Border.all(width: 3,color: Colors.black),
-                        borderRadius: const BorderRadius.all(Radius.circular(10))
-                    ),
-                    child: const Text(
-                      '\n\n'
-                      '我的小书包     '
-                      '\n\n',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        height: 1.45,fontSize: 18.0
-                      ),
-                    ),
-                  ),
-                ),
-              ]
+    return Container(
+      color: Colors.black,
+      padding: EdgeInsets.fromLTRB(35, 80, 35, 35),
+      child: Column(
+        children: [
+          Text("你拖着行李，地图导航着宿舍的方向，忽然一位热情的学长/学姐拦住了你，询问你要不要办理学生卡：",
+            style: TextStyle(
+                color: Colors.white,
+                fontSize: 24
             ),
-            Container(
-              decoration: BoxDecoration(
-                  border: Border.all(width: 3,color: Colors.black),
-                  borderRadius: const BorderRadius.all(Radius.circular(10))
+          ),
+          SizedBox(
+            height: 30,
+          ),
+          Container(
+            alignment: Alignment.centerRight,
+            child: Text(
+              "你是新生吗？我来帮你吧！",
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 16
               ),
-              child: const Text(
-                '\n\n'
-                "社交技能：114                 \n\n"
-                "知识技能：514                 \n\n"
-                "摸鱼技能：114                 \n\n"
-                "emo指数：514                 "
-                '\n\n',
+            ),
+          ),
+          SizedBox(
+            height: 30,
+          ),
+          Container(
+            child: Image.asset("assets/images/笨手笨脚 .jpg",
+              fit: BoxFit.fill,),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                width: 130,
+                height: 30,
+                color: Colors.white,
+                child: Text("欣然接受",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.black
+                  ),),
+              ),
+              Spacer(),
+              Container(
+                width: 130,
+                height: 30,
+                color: Colors.white,
+                child: Text("不予理会",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.black
+                  ),),
+              ),
+            ],
+          ),
+          Spacer(),
+          GestureDetector(
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) => const LoadPageTwo()));
+            },
+            child: Container(
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                  border: Border.all(color: Colors.white,width: 3)
+              ),
+              height: 45,
+              width: double.infinity,
+              child: Text(
+                "立即开始大学生活",
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontSize: 24.0,
-                  height: 1,
+                  color: Colors.white,
+                  fontSize: 24,
                 ),
               ),
             ),
-            GestureDetector(
-              onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(builder: (context) => const GameEnd()));
-              },
-              child: Container(
-                decoration: BoxDecoration(
-                    border: Border.all(width: 3,color: Colors.black),
-                    borderRadius: const BorderRadius.all(Radius.circular(10))
-                ),
-                child: const Text('开启下一个月  ', textAlign: TextAlign.center,style: TextStyle(height: 2,fontSize: 24.0)),
-              ),
-            ),
-          ],
-        ),
+          )
+
+        ],
       ),
     );
   }
