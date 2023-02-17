@@ -1,10 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:restart/school_chose.dart';
 import 'game_start.dart';
-import 'not_done.dart';
 
 class ChosenMode extends StatefulWidget {
-  const ChosenMode({Key? key}) : super(key: key);
-
   @override
   State<ChosenMode> createState() => _ChosenModeState();
 }
@@ -13,63 +12,79 @@ class _ChosenModeState extends State<ChosenMode> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        alignment: FractionalOffset.center,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            GestureDetector(
-              onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(builder: (context) => const NotDone()));
-              },
-              child: Container(
-                decoration: BoxDecoration(
-                    border: Border.all(width: 3,color: Colors.black),
-                    borderRadius: const BorderRadius.all(Radius.circular(10))
+    return Container(
+      color: Colors.black,
+      child: Column(
+        children: [
+          Container(
+            padding: EdgeInsets.fromLTRB(35, 50, 35, 0),
+            child: Column(
+              children: [
+                Container(
+                  alignment: Alignment(-1, 0),
+                  child: Text("请选择你的技能：",
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 25,
+                    ),
+                  ),
                 ),
-                child: const Text('\n\n''填报志愿                 ''\n\n',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 36.0,
-                    height: 1
-                  )
+                SizedBox(
+                  height: 15,
                 ),
-              ),
+                Container(
+                  alignment: Alignment(-1, 0),
+                  child: Text("规则：你共有10个技能点，请合理分配哦！",
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 17,
+                    ),
+                  ),
+                ),
+              ],
             ),
-            GestureDetector(
-              onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(builder: (context) => const NotDone()));
-              },
-              child: Container(
-                decoration: BoxDecoration(
-                    border: Border.all(width: 3,color: Colors.black),
-                    borderRadius: const BorderRadius.all(Radius.circular(10))
-                ),
-                child: const Text(
-                  '天赋选取（10个点数分配）\n\n'
-                  '社交技能：114\n\n'
-                  '知识技能：514\n\n'
-                  '摸鱼技能：114\n\n'
-                  'emo指数：514',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 24.0)),
-              ),
+          ),
+          Spacer(),
+          Container(
+            padding: EdgeInsets.only(left: 50, right: 50, top: 50, bottom: 30),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(30), topRight: Radius.circular(30)),
             ),
-            GestureDetector(
-              onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(builder: (context) => const GameStart()));
-              },
-              child: Container(
-                decoration: BoxDecoration(
-                    border: Border.all(width: 3,color: Colors.black),
-                    borderRadius: const BorderRadius.all(Radius.circular(10))
-                ),
-                child: const Text('\n\n''开启大学生活        ''\n\n',textAlign: TextAlign.center,style: TextStyle(height: 0.5,fontSize: 24.0)),
-              ),
+            width: double.infinity,
+            height: 550,
+            child: Column(
+              children: [
+                Spacer(), //这里填点数
+                GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const ChosenSchool()));
+                  },
+                  child: Container(
+                    color: Colors.black,
+                    height: 40,
+                    width: double.infinity,
+                    child: Text(
+                      "选好啦！",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 24,
+                      ),
+                    ),
+                  ),
+
+                )
+              ],
             ),
-          ],
-        ),
+          )
+        ],
       ),
     );
   }
