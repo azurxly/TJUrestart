@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:restart/beginpage.dart';
 
@@ -19,30 +18,28 @@ class _HomePageState extends State<HomePage> {
       },
       child:Container(
         color: Colors.black,
-        padding: EdgeInsets.fromLTRB(35, 50, 35, 50),
+        padding: const EdgeInsets.fromLTRB(35, 50, 35, 50),
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
 
-            SizedBox(
+            const SizedBox(
               height: 129,
 
-              child: Container(
-                child:
-                Text(
-                  "如果再来一次……             "
-                      '\n'
-                      "如果……                ",
+              child: Text(
+                "如果再来一次……             "
+                    '\n'
+                    "如果……                ",
 
-                  textAlign:TextAlign.left ,
-                  style: TextStyle(
-                      color:Colors.white,
-                      fontSize: 25,
-                      fontWeight: FontWeight.bold
+                textAlign:TextAlign.left ,
+                style: TextStyle(
+                    decoration: TextDecoration.none,
+                    color:Colors.white,
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold
 
-                  ),
                 ),
               ),
             ),
@@ -51,19 +48,17 @@ class _HomePageState extends State<HomePage> {
               fit: BoxFit.cover,
 
             ),
-            Spacer(),
-            Container(
-              child:
-              Text(
-                "点击空白处继续",
+            const Spacer(),
+            const Text(
+              "点击空白处继续",
 
 
-                style: TextStyle(
-                    color:Colors.grey,
-                    fontSize: 13,
-                    fontWeight: FontWeight.bold
+              style: TextStyle(
+                  decoration: TextDecoration.none,
+                  color:Colors.grey,
+                  fontSize: 13,
+                  fontWeight: FontWeight.bold
 
-                ),
               ),
             ),
           ],

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'game_start.dart';
-import 'not_done.dart';
+import 'package:restart/school_chose.dart';
+import '../game_start.dart';
 
 class LoadPage extends StatefulWidget {
-  const LoadPage({Key? key}) : super(key: key);
+  final int majorNumber;
+
+  const LoadPage({required this.majorNumber, Key? key}) : super(key: key);
 
   @override
   State<LoadPage> createState() => _LoadPageState();
@@ -46,7 +48,7 @@ class _LoadPageState extends State<LoadPage> {
             ),
             child: GestureDetector(
               onTap: (){
-                Navigator.of(context).push(MaterialPageRoute(builder: (context) => const GameStart()));
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => const GameStart(majorNumber: 6, name: 'null',)));
               },
               child: Text(
                 "这里有动画",

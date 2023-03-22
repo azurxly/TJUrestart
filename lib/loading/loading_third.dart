@@ -1,9 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:restart/report.dart';
-import 'not_done.dart';
-import 'game_page.dart';
+
 class LoadPageThird extends StatefulWidget {
-  const LoadPageThird({Key? key}) : super(key: key);
+  final int majorNumber;
+  final int emo;
+  final int fish;
+  final int sociality;
+  final int knowledge;
+  final String name;
+  const LoadPageThird({
+    required this.majorNumber,
+    required this.emo,
+    required this.fish,
+    required this.sociality,
+    required this.knowledge,
+    required this.name,
+    Key? key}) : super(key: key);
 
   @override
   State<LoadPageThird> createState() => _LoadPageThirdState();
@@ -13,9 +25,15 @@ class _LoadPageThirdState extends State<LoadPageThird> {
 
   @override
   Widget build(BuildContext context) {
+    int majorNumber = widget.majorNumber;
+    int emo = widget.emo;
+    int fish = widget.fish;
+    int sociality = widget.sociality;
+    int knowledge = widget.knowledge;
+    String name = widget.name;
     return Container(
-        padding: EdgeInsets.fromLTRB(50, 450, 50, 50),
-        decoration: BoxDecoration(
+        padding: const EdgeInsets.fromLTRB(50, 450, 50, 50),
+        decoration: const BoxDecoration(
             image: DecorationImage(
                 image: AssetImage("assets/images/load2.jpg"),
                 fit: BoxFit.cover
@@ -23,19 +41,19 @@ class _LoadPageThirdState extends State<LoadPageThird> {
         ),
         child:Column(
           children: [
-
             Container(
-              alignment: Alignment(-1,0),
-              child: Text(
+              alignment: const Alignment(-1,0),
+              child: const Text(
                 "Loading……",
                 textAlign: TextAlign.left,
                 style: TextStyle(
+                    decoration: TextDecoration.none,
                     color: Colors.black,
                     fontSize: 25
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Container(
@@ -44,41 +62,46 @@ class _LoadPageThirdState extends State<LoadPageThird> {
               decoration: BoxDecoration(
                   border: Border.all(color: Colors.black,width: 3)
               ),
-              child:Text(
+              child:const Text(
                 "这里有动画",
                 style: TextStyle(
+                    decoration: TextDecoration.none,
                     color: Colors.black,
                     fontSize: 10
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
-            Container(
+            const SizedBox(
               width: double.infinity,
               child: Text("你的大学生活圆满结束！\n新的人生旅程正等着你！",
                 style: TextStyle(
+                    decoration: TextDecoration.none,
                     color: Colors.black,
                     fontSize: 13
                 ),),
             ),
-            Spacer(),
+            const Spacer(),
             GestureDetector(
               onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(builder: (context) => const Report()));
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => Report
+                  (name: name, majorNumber: majorNumber, fish: fish, knowledge: knowledge, emo: emo, sociality: sociality,)
+                ));
               },
               child: Container(
                 alignment: Alignment.center,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                     color: Colors.black
                 ),
                 height: 45,
                 width: double.infinity,
-                child: Text(
+                child: const Text(
                   "查看报告",
                   textAlign: TextAlign.center,
                   style: TextStyle(
+                    decoration: TextDecoration.none,
                     color: Colors.white,
                     fontSize: 24,
                   ),

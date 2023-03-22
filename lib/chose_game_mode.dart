@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:restart/chosen_mode.dart';
 import 'package:restart/random_mode.dart';
 class ChoseGameMode extends StatefulWidget{
-  const ChoseGameMode({Key? key}) : super(key: key);
+  final name;
+  const ChoseGameMode({required this.name, Key? key}) : super(key: key);
 
   @override
   State<ChoseGameMode> createState() => _ChoseGameModeState();
@@ -12,90 +13,92 @@ class _ChoseGameModeState extends State<ChoseGameMode>{
 
   @override
   Widget build(BuildContext context) {
+    String name = widget.name;
     return Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             image:DecorationImage(
                 image: AssetImage("assets/images/page3.jpg"),
                 fit: BoxFit.cover
 
             )
         ),
-        padding: EdgeInsets.only(top: 42,left: 41),
+        padding: const EdgeInsets.only(top: 42,left: 41),
         child: Column(
           children: [
-            Spacer(),
+            const Spacer(),
             Row(
                 children:[
                   SizedBox(
                     height: 105,
                     width: 230,
                     child: Container(
-                      alignment: Alignment(0,0),
-                      padding: EdgeInsets.all(6),
+                      alignment: const Alignment(0,0),
+                      padding: const EdgeInsets.all(6),
                       child: Column(
                           children: [
-                            Text("请问你希望如何选择重开后的专业？",
+                            const Text("请问你希望如何选择重开后的专业？",
                             style: TextStyle(
+                                decoration: TextDecoration.none,
                               color: Colors.black,
                               fontSize: 16,
                               fontWeight: FontWeight.bold
                             ),
                             ),
-                            Spacer(),
+                            const Spacer(),
                             Row(
                               children: [
-                                Spacer(),
+                                const Spacer(),
                                 GestureDetector(
                                   onTap: () {
-                                    Navigator.of(context).push(MaterialPageRoute(builder: (context) =>  ChosenMode()));
+                                    Navigator.of(context).push(MaterialPageRoute(builder: (context) =>  ChosenMode(name: name,)));
                                   },
                                   child: Container(
                                     width: 80,
                                     height: 30,
-                                    alignment: Alignment(0,0),
+                                    alignment: const Alignment(0,0),
                                     color: Colors.black,
-                                    child: Text(
+                                    child: const Text(
                                       "自由选择",
                                       style: TextStyle(
+                                          decoration: TextDecoration.none,
                                         color: Colors.white,
                                         fontSize: 16
                                       ),
                                     ),
                                   ),
                                 ),
-                                Spacer(),
+                                const Spacer(),
                                 GestureDetector(
                                   onTap: () {
-                                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => const RandomMode()));
+                                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => RandomMode(name: name,)));
                                   },
                                   child: Container(
                                     width: 80,
                                     height: 30,
-                                    alignment: Alignment(0,0),
+                                    alignment: const Alignment(0,0),
                                     color: Colors.black,
-                                    child: Text(
+                                    child: const Text(
                                       "随机选择",
                                       style: TextStyle(
+                                          decoration: TextDecoration.none,
                                           color: Colors.white,
                                           fontSize: 16
                                       ),
                                     ),
                                   ),
                                 ),
-                                Spacer()
+                                const Spacer()
                               ],
                             )
                           ],
                         )
-
                     ),
                   ),
                 ]
             ),
-            Spacer(),
+            const Spacer(),
           ],
         )
-
     );
   }
 }

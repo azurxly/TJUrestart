@@ -12,25 +12,25 @@ class _BeginPageState extends State<BeginPage>{
   Widget build(BuildContext context) {
     return Container(
       color: Colors.black,
-      padding: EdgeInsets.fromLTRB(35, 50, 35, 50),
+      padding: const EdgeInsets.fromLTRB(35, 50, 35, 50),
       child: Column(
         children: [
-          SizedBox(
+          const SizedBox(
             height: 50,
           ),
 
           SizedBox(
             height: 129,
             child:Container(
-              alignment: Alignment(-1,-1),
+              alignment: const Alignment(-1,-1),
               child:Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
+                children: const [
                   Text("Restart your college life",
                   style: TextStyle(
+                    decoration: TextDecoration.none,
                     color: Colors.white,
                     fontSize: 16,
-
                   ),
                   ),
                   Text("大学重开"
@@ -38,6 +38,7 @@ class _BeginPageState extends State<BeginPage>{
                     "模拟器",
                     textAlign: TextAlign.left,
                     style: TextStyle(
+                      decoration: TextDecoration.none,
                       color: Colors.white,
                       fontSize: 34,
                       fontWeight: FontWeight.bold,
@@ -50,9 +51,8 @@ class _BeginPageState extends State<BeginPage>{
 
           Image.asset("assets/images/page1.jpg",
             fit: BoxFit.cover,
-
           ),
-          Spacer(),
+          const Spacer(),
           GestureDetector(
             onTap: () {
               Navigator.of(context).push(MaterialPageRoute(builder: (context) => const NamePage()));
@@ -63,23 +63,20 @@ class _BeginPageState extends State<BeginPage>{
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.white,width: 3),
               ),
-              alignment: Alignment(0,0),
+              alignment: const Alignment(0,0),
               child:
-              Text(
+              const Text(
                 "立即重开",
-
-
                 style: TextStyle(
+                    decoration: TextDecoration.none,
                     color:Colors.white,
                     fontSize: 24,
                     fontWeight: FontWeight.bold
-
                 ),
               ),
             ),
           )
         ],
-
       ),
     );
   }

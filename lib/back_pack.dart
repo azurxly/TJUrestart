@@ -1,8 +1,21 @@
 import 'package:flutter/material.dart';
-import 'game_start.dart';
+import 'package:restart/game_page.dart';
 
 class BackPack extends StatefulWidget {
-  const BackPack({Key? key}) : super(key: key);
+  final int majorNumber;
+  final String name;
+  final fish;
+  final sociality;
+  final emo;
+  final knowledge;
+  const BackPack({
+    required this.name,
+    required this.majorNumber,
+    required this.fish,
+    required this.sociality,
+    required this.emo,
+    required this.knowledge,
+    Key? key}) : super(key: key);
 
   @override
   State<BackPack> createState() => _BackPackState();
@@ -12,13 +25,20 @@ class _BackPackState extends State<BackPack> {
 
   @override
   Widget build(BuildContext context) {
+    int majorNumber = widget.majorNumber;
+    String name = widget.name;
+    int fish = widget.fish;
+    int sociality = widget.sociality;
+    int emo = widget.emo;
+    int knowledge = widget.knowledge;
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           GestureDetector(
             onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) => const GameStart()));
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) => GamePage
+                (knowledge: knowledge,emo: emo,fish: fish,sociality: sociality,majorNumber: majorNumber, name: name,)));
             },
             child: Container(
               decoration: BoxDecoration(

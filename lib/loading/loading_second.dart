@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'not_done.dart';
-import 'game_page.dart';
+import '../game_page.dart';
 class LoadPageTwo extends StatefulWidget {
   const LoadPageTwo({Key? key}) : super(key: key);
 
@@ -13,8 +12,8 @@ class _LoadPageTwoState extends State<LoadPageTwo> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: EdgeInsets.fromLTRB(50, 450, 50, 50),
-        decoration: BoxDecoration(
+        padding: const EdgeInsets.fromLTRB(50, 450, 50, 50),
+        decoration: const BoxDecoration(
             image: DecorationImage(
                 image: AssetImage("assets/images/load2.jpg"),
                 fit: BoxFit.cover
@@ -24,8 +23,8 @@ class _LoadPageTwoState extends State<LoadPageTwo> {
           children: [
 
             Container(
-              alignment: Alignment(-1,0),
-              child: Text(
+              alignment: const Alignment(-1,0),
+              child: const Text(
                 "Loading……",
                 textAlign: TextAlign.left,
                 style: TextStyle(
@@ -34,7 +33,7 @@ class _LoadPageTwoState extends State<LoadPageTwo> {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Container(
@@ -43,7 +42,7 @@ class _LoadPageTwoState extends State<LoadPageTwo> {
               decoration: BoxDecoration(
                   border: Border.all(color: Colors.black,width: 3)
               ),
-              child:Text(
+              child:const Text(
                   "这里有动画",
                   style: TextStyle(
                       color: Colors.black,
@@ -51,10 +50,10 @@ class _LoadPageTwoState extends State<LoadPageTwo> {
                   ),
                 ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
-            Container(
+            const SizedBox(
               width: double.infinity,
               child: Text("恭喜你开学啦！美好的大学生活也要开始喽！",
                 style: TextStyle(
@@ -62,19 +61,19 @@ class _LoadPageTwoState extends State<LoadPageTwo> {
                     fontSize: 13
                 ),),
             ),
-            Spacer(),
+            const Spacer(),
             GestureDetector(
               onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(builder: (context) => const GamePage()));
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => GamePage(majorNumber: 7, name: '',)));
               },
               child: Container(
                 alignment: Alignment.center,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                     color: Colors.black
                 ),
                 height: 45,
                 width: double.infinity,
-                child: Text(
+                child: const Text(
                   "早就准备好了！",
                   textAlign: TextAlign.center,
                   style: TextStyle(

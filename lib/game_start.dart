@@ -1,10 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:restart/game_page.dart';
 
-import 'back_pack.dart';
-import 'package:restart/loading_second.dart';
-import 'package:flutter/material.dart';
 class GameStart extends StatefulWidget {
-  const GameStart({Key? key}) : super(key: key);
+  final majorNumber;
+  final name;
+  final fish;
+  final sociality;
+  final emo;
+  final knowledge;
+  const GameStart({
+    required this.majorNumber,
+    required this.name,
+    required this.fish,
+    required this.sociality,
+    required this.emo,
+    required this.knowledge,
+    Key? key}) : super(key: key);
 
   @override
   State<GameStart> createState() => _GameStartState();
@@ -14,6 +25,12 @@ class _GameStartState extends State<GameStart> {
 
   @override
   Widget build(BuildContext context) {
+    String name = widget.name;
+    int majorNumber = widget.majorNumber;
+    int fish = widget.fish;
+    int sociality = widget.sociality;
+    int emo = widget.emo;
+    int knowledge = widget.knowledge;
     return Container(
       color: Colors.black,
       padding: EdgeInsets.fromLTRB(35, 80, 35, 35),
@@ -21,6 +38,7 @@ class _GameStartState extends State<GameStart> {
         children: [
           Text("你拖着行李，地图导航着宿舍的方向，忽然一位热情的学长/学姐拦住了你，询问你要不要办理学生卡：",
             style: TextStyle(
+                decoration: TextDecoration.none,
                 color: Colors.white,
                 fontSize: 24
             ),
@@ -33,6 +51,7 @@ class _GameStartState extends State<GameStart> {
             child: Text(
               "你是新生吗？我来帮你吧！",
               style: TextStyle(
+                  decoration: TextDecoration.none,
                   color: Colors.white,
                   fontSize: 16
               ),
@@ -55,6 +74,7 @@ class _GameStartState extends State<GameStart> {
                 child: Text("欣然接受",
                   textAlign: TextAlign.center,
                   style: TextStyle(
+                      decoration: TextDecoration.none,
                       fontSize: 20,
                       color: Colors.black
                   ),),
@@ -67,6 +87,7 @@ class _GameStartState extends State<GameStart> {
                 child: Text("不予理会",
                   textAlign: TextAlign.center,
                   style: TextStyle(
+                      decoration: TextDecoration.none,
                       fontSize: 20,
                       color: Colors.black
                   ),),
@@ -76,7 +97,8 @@ class _GameStartState extends State<GameStart> {
           Spacer(),
           GestureDetector(
             onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) => const LoadPageTwo()));
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) => GamePage
+                (knowledge: knowledge,emo: emo,fish: fish,sociality: sociality,name: name,majorNumber: majorNumber)));
             },
             child: Container(
               alignment: Alignment.center,
@@ -89,6 +111,7 @@ class _GameStartState extends State<GameStart> {
                 "立即开始大学生活",
                 textAlign: TextAlign.center,
                 style: TextStyle(
+                  decoration: TextDecoration.none,
                   color: Colors.white,
                   fontSize: 24,
                 ),
