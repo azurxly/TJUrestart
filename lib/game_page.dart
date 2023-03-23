@@ -59,7 +59,7 @@ class GamePage extends StatefulWidget {
 class _GamePageState extends State<GamePage> {
   Future<Data> initGetData() async {
     var data = await DioService.getData(widget.majorNumber);
-     setState(() {
+    setState(() {
 
     });
     return data;
@@ -111,10 +111,10 @@ class _GamePageState extends State<GamePage> {
                       Text(
                         "知识技能：    $knowledge\n社交技能：    $sociality\n摸鱼技能：    $fish\nemo指数:     $emo",
                         style:
-                            const TextStyle(
-                                decoration: TextDecoration.none,
-                                color: Colors.black,
-                                fontSize: 16),
+                        const TextStyle(
+                            decoration: TextDecoration.none,
+                            color: Colors.black,
+                            fontSize: 16),
                       ),
                       const Spacer(),
                       SizedBox(
@@ -125,16 +125,16 @@ class _GamePageState extends State<GamePage> {
                         ),
                       ),
                       SizedBox(
-                        width: 100,
-                        height: 100,
-                        child: GestureDetector(
-                          onTap: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => BackPack
-                                  (knowledge: knowledge,emo: emo,fish: fish,sociality: sociality,name: name, majorNumber: majorNumber,)));
-                          },
-                          child: Container(
-                            alignment: Alignment.center,
+                          width: 100,
+                          height: 100,
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => BackPack
+                                    (knowledge: knowledge,emo: emo,fish: fish,sociality: sociality,name: name, majorNumber: majorNumber,)));
+                            },
+                            child: Container(
+                              alignment: Alignment.center,
                               child: Column(
                                 children: const [
                                   Spacer(),
@@ -153,8 +153,8 @@ class _GamePageState extends State<GamePage> {
                                   Spacer(),
                                 ],
                               ),
-                          ),
-                        )
+                            ),
+                          )
                       )
                     ],
                   ),
@@ -168,7 +168,7 @@ class _GamePageState extends State<GamePage> {
                 ]),
                 child: Container(
                   width: double.infinity,
-                  height: 600,
+                  height: PhoneHeight * 0.73466389,
                   padding: const EdgeInsets.only(left: 5),
                   decoration: BoxDecoration(
                     border: Border.all(color: Colors.black, width: 3),
@@ -187,44 +187,46 @@ class _GamePageState extends State<GamePage> {
                           print('tap');
                           eventlist.forEach((e) {print(e);});
                           initGetData();
+                          if(cnt == 0)
+                            skillinit = false;
                           Future.delayed(const Duration(milliseconds: 1000), (){
                             setState(() {
 
                             });
-                          cnt++;
-                          knowledge = (knowledge + _data.effect.knowledge);
-                          sociality = (sociality + _data.effect.sociality);
-                          fish = (fish + _data.effect.fish);
-                          emo = (emo + _data.effect.emo);
-                          event = _data.context;
-                          impact = _data.effect.text;
-                          eventlist.add(
-                            SizedBox(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children:[
-                                  Text(
-                                    '第$cnt个月——————————————————\n$event\n$impact\n\n',
-                                    softWrap: true,
-                                    textAlign: TextAlign.center,
-                                    style: const TextStyle(
-                                      decoration: TextDecoration.none,
-                                      color: Colors.black,
-                                      fontSize: 18,
-                                      height: 1.8,
+                            cnt++;
+                            knowledge = (knowledge + _data.effect.knowledge);
+                            sociality = (sociality + _data.effect.sociality);
+                            fish = (fish + _data.effect.fish);
+                            emo = (emo + _data.effect.emo);
+                            event = _data.context;
+                            impact = _data.effect.text;
+                            eventlist.add(
+                              SizedBox(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children:[
+                                    Text(
+                                      '第$cnt个月——————————————————\n$event\n$impact\n\n',
+                                      softWrap: true,
+                                      textAlign: TextAlign.center,
+                                      style: const TextStyle(
+                                        decoration: TextDecoration.none,
+                                        color: Colors.black,
+                                        fontSize: 18,
+                                        height: 1.8,
+                                      ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
-                            ),
-                          );
+                            );
                           });
-                          if(cnt > 10) {
+                          if(cnt > 11) {
                             Navigator.pushReplacement(context,
-                                MaterialPageRoute(builder: (BuildContext context) {
-                                  return LoadPageThird
-                                    (name: name,majorNumber: majorNumber, fish: fish, knowledge: knowledge, emo: emo, sociality: sociality,);
-                                },),);
+                              MaterialPageRoute(builder: (BuildContext context) {
+                                return LoadPageThird
+                                  (name: name,majorNumber: majorNumber, fish: fish, knowledge: knowledge, emo: emo, sociality: sociality,);
+                              },),);
 
                             cnt = 0;
                             eventlist.clear();

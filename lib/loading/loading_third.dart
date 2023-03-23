@@ -31,8 +31,11 @@ class _LoadPageThirdState extends State<LoadPageThird> {
     int sociality = widget.sociality;
     int knowledge = widget.knowledge;
     String name = widget.name;
+    final size = MediaQuery.of(context).size;
+    double PhoneWidth = size.width;
+    double PhoneHeight = size.height;
     return Container(
-        padding: const EdgeInsets.fromLTRB(50, 450, 50, 50),
+        padding: EdgeInsets.fromLTRB(50, 0.5509979 * PhoneHeight, 50, 50),
         decoration: const BoxDecoration(
             image: DecorationImage(
                 image: AssetImage("assets/images/load2.jpg"),
@@ -86,9 +89,11 @@ class _LoadPageThirdState extends State<LoadPageThird> {
             const Spacer(),
             GestureDetector(
               onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(builder: (context) => Report
-                  (name: name, majorNumber: majorNumber, fish: fish, knowledge: knowledge, emo: emo, sociality: sociality,)
-                ));
+                Navigator.of(context).pushAndRemoveUntil(
+                  MaterialPageRoute(builder: (context) => Report
+                    (name: name, majorNumber: majorNumber, fish: fish, knowledge: knowledge, emo: emo, sociality: sociality,)),
+                      (Route<dynamic> route) => false,
+                );
               },
               child: Container(
                 alignment: Alignment.center,

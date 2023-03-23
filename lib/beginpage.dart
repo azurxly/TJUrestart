@@ -10,17 +10,20 @@ class BeginPage extends StatefulWidget {
 class _BeginPageState extends State<BeginPage>{
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    double PhoneWidth = size.width;
+    double PhoneHeight = size.height;
     return Container(
       color: Colors.black,
-      padding: const EdgeInsets.fromLTRB(35, 50, 35, 50),
+      padding: EdgeInsets.fromLTRB(PhoneWidth * 0.1, PhoneHeight * 0.061222, PhoneWidth * 0.1, PhoneHeight * 0.061222),
       child: Column(
         children: [
-          const SizedBox(
-            height: 50,
+          SizedBox(
+            height: PhoneHeight * 0.061222,
           ),
 
           SizedBox(
-            height: 129,
+            height: PhoneHeight * 0.15737465,
             child:Container(
               alignment: const Alignment(-1,-1),
               child:Column(
@@ -58,8 +61,8 @@ class _BeginPageState extends State<BeginPage>{
               Navigator.of(context).push(MaterialPageRoute(builder: (context) => const NamePage()));
             },
             child: Container(
-              height: 45,
-              width: 300,
+              height: PhoneHeight * 0.05509979,
+              width: PhoneWidth * 0.7966,
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.white,width: 3),
               ),

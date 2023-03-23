@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:restart/home_page.dart';
+import 'package:restart/beginpage.dart';
 
 class Report extends StatefulWidget {
   final int majorNumber;
@@ -33,6 +33,9 @@ class _ReportState extends State<Report> {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    double PhoneWidth = size.width;
+    double PhoneHeight = size.height;
     int majorNumber = widget.majorNumber;
     int emo = widget.emo;
     int fish = widget.fish;
@@ -176,7 +179,7 @@ class _ReportState extends State<Report> {
             Visibility(
               visible: _counter>=1,
                 child:Positioned(
-                  top: 400,
+                  top: 0.4897759 * PhoneHeight,
                   left: 180,
                   width: 250,
                   height: 150,
@@ -226,7 +229,7 @@ class _ReportState extends State<Report> {
             Visibility(
                 visible: _counter>=3,
                 child:Positioned(
-                  top: 600,
+                  top: 0.73466389 * PhoneHeight,
                   child: Column(
                     children: [
                       Container(
@@ -238,7 +241,10 @@ class _ReportState extends State<Report> {
                         ),
                         child: GestureDetector(
                           onTap: () {
-                           Navigator.of(context).push(MaterialPageRoute(builder: (context) => const HomePage()));
+                            Navigator.of(context).pushAndRemoveUntil(
+                                MaterialPageRoute(builder: (context) => BeginPage()),
+                            (Route<dynamic> route) => false,
+                            );
                           },
                           child: Text(
                             "再次重开",

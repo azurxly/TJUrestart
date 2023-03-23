@@ -13,6 +13,9 @@ class _NamePageState extends State<NamePage> {
   String name ='';
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    double PhoneWidth = size.width;
+    double PhoneHeight = size.height;
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
@@ -21,15 +24,15 @@ class _NamePageState extends State<NamePage> {
             fit: BoxFit.cover
           )
         ),
-        padding: const EdgeInsets.only(top: 42,left: 41),
+        padding: EdgeInsets.only(top: PhoneHeight * 0.05142647,left: PhoneWidth * 0.1088688),
         child: Column(
           children: [
             const Spacer(),
             Row(
               children:[
                 SizedBox(
-                height: 105,
-                width: 230,
+                height: PhoneHeight * 0.12856618,
+                width: PhoneWidth * 0.6107275624,
                   child: Container(
                     alignment: const Alignment(0,0),
                     child: TextField(
@@ -39,25 +42,28 @@ class _NamePageState extends State<NamePage> {
                         name = nameController.text;
                         print(nameController.text);
                       },
-                      decoration: const InputDecoration(
-                        contentPadding: EdgeInsets.all(10.0),
+                      decoration: InputDecoration(
+                        contentPadding: EdgeInsets.all(PhoneWidth * 0.02655337),
                         labelText: '请输入你的名字',
                       ),
                     ),
                   ),
                 ),
                 SizedBox(
-                  height: 145,
-                  width: 90,
+                  height: PhoneHeight * 0.1775437737,
+                  width: PhoneWidth * 0.23898035,
                   child: Container(
                     alignment: const Alignment(0,0),
                     child: GestureDetector(
                       onTap: () {
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => ChoseGameMode(name: name)));
+                        Navigator.of(context).pushAndRemoveUntil(
+                          MaterialPageRoute(builder: (context) => ChoseGameMode(name: name)),
+                              (Route<dynamic> route) => false,
+                        );
                       },
                       child: Container(
-                        width: 80,
-                        height: 30,
+                        width: PhoneWidth * 0.212426978,
+                        height: PhoneHeight * 0.03673319456,
                         alignment: const Alignment(0,0),
                         color: Colors.black,
                         child: const Text(

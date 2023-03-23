@@ -12,21 +12,24 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    double PhoneWidth = size.width;
+    double PhoneHeight = size.height;
     return GestureDetector(
       onTap: () {
         Navigator.of(context).push(MaterialPageRoute(builder: (context) => const BeginPage()));
       },
       child:Container(
         color: Colors.black,
-        padding: const EdgeInsets.fromLTRB(35, 50, 35, 50),
+        padding: EdgeInsets.fromLTRB(PhoneWidth * 0.1, PhoneHeight * 0.061222, PhoneWidth * 0.1, PhoneHeight * 0.061222),
         child: Column(
           children: [
-            const SizedBox(
-              height: 50,
+            SizedBox(
+              height: PhoneHeight * 0.061222,
             ),
 
-            const SizedBox(
-              height: 129,
+             SizedBox(
+              height: PhoneHeight * 0.15737465,
 
               child: Text(
                 "如果再来一次……             "

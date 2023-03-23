@@ -14,12 +14,15 @@ class _RandomModeState extends State<RandomMode> {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    double PhoneWidth = size.width;
+    double PhoneHeight = size.height;
     String name = widget.name;
     int majorNumber = Random().nextInt(20) + 1;
     String major = ' ';
-    int fish = Random().nextInt(10)+0;
-    int sociality = Random().nextInt(10 - fish) + 0;
-    int knowledge = Random().nextInt(10 - fish - sociality) + 0;
+    int fish = Random().nextInt(9)+0;
+    int sociality = Random().nextInt(9 - fish) + 0;
+    int knowledge = Random().nextInt(9 - fish - sociality) + 0;
     int emo = 10 - fish -sociality - knowledge;
     switch (majorNumber){
       case 1:
@@ -116,7 +119,7 @@ class _RandomModeState extends State<RandomMode> {
               borderRadius: BorderRadius.only(topLeft: Radius.circular(30),topRight: Radius.circular(30)),
             ),
             width: double.infinity,
-            height: 650,
+            height: 0.7858858822 * PhoneHeight,
             child:Column(
               children: [
                 Container(
@@ -156,8 +159,11 @@ class _RandomModeState extends State<RandomMode> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => GameStart
-                      (fish: fish,knowledge: knowledge, emo: emo,sociality: sociality,name: name, majorNumber: majorNumber,)));
+                    Navigator.of(context).pushAndRemoveUntil(
+                      MaterialPageRoute(builder: (context) => GameStart
+                        (fish: fish,knowledge: knowledge, emo: emo,sociality: sociality,name: name, majorNumber: majorNumber,)),
+                          (Route<dynamic> route) => false,
+                    );
                   },
                   child: Container(
                     color: Colors.black,

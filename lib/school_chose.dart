@@ -407,6 +407,9 @@ class _ChosenSchoolState extends State<ChosenSchool> {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    double PhoneWidth = size.width;
+    double PhoneHeight = size.height;
     String name = widget.name;
     int majorNumber = Number;
     int fish = widget.fish;
@@ -446,16 +449,14 @@ class _ChosenSchoolState extends State<ChosenSchool> {
               borderRadius: BorderRadius.only(topLeft: Radius.circular(30),topRight: Radius.circular(30)),
             ),
             width: double.infinity,
-            height: 650,
+            height: 0.7958858822 * PhoneHeight,
             child:Column(
               children: [
                 Container(
-                  height: 430,
-                  child: Expanded(
-                    child:
-                    ListView(
+                  height: 0.526509122 * PhoneHeight,
+                  child:
+                  ListView(
                       children: schoollist,
-                    ),
                   ),
                 ),
                 Spacer(),
@@ -483,8 +484,11 @@ class _ChosenSchoolState extends State<ChosenSchool> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => GameStart
-                      (knowledge: knowledge,emo: emo,fish: fish,sociality: sociality,majorNumber: majorNumber, name: name,)));
+                    Navigator.of(context).pushAndRemoveUntil(
+                      MaterialPageRoute(builder: (context) => GameStart
+                        (knowledge: knowledge,emo: emo,fish: fish,sociality: sociality,majorNumber: majorNumber, name: name,)),
+                          (Route<dynamic> route) => false,
+                    );
                     },
                   child: Container(
                     alignment: Alignment.center,

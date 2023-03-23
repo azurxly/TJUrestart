@@ -25,6 +25,9 @@ class _GameStartState extends State<GameStart> {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    double PhoneWidth = size.width;
+    double PhoneHeight = size.height;
     String name = widget.name;
     int majorNumber = widget.majorNumber;
     int fish = widget.fish;
@@ -97,8 +100,12 @@ class _GameStartState extends State<GameStart> {
           Spacer(),
           GestureDetector(
             onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) => GamePage
-                (knowledge: knowledge,emo: emo,fish: fish,sociality: sociality,name: name,majorNumber: majorNumber)));
+              Navigator.of(context).pushAndRemoveUntil(
+                MaterialPageRoute(builder: (context) => GamePage
+                  (knowledge: knowledge,emo: emo,fish: fish,sociality: sociality,name: name,majorNumber: majorNumber)),
+                    (Route<dynamic> route) => false,
+              );
+
             },
             child: Container(
               alignment: Alignment.center,

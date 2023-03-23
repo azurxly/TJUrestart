@@ -17,6 +17,9 @@ class _ChosenModeState extends State<ChosenMode> {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    double PhoneWidth = size.width;
+    double PhoneHeight = size.height;
     String name = widget.name;
     return Container(
       color: Colors.black,
@@ -65,18 +68,18 @@ class _ChosenModeState extends State<ChosenMode> {
                   topLeft: Radius.circular(30), topRight: Radius.circular(30)),
             ),
             width: double.infinity,
-            height: 550,
+            height: PhoneHeight * 0.6734419,
             child: Column(
               children: [
                 Text("当前可用技能点：$sumpoint",
                   style: TextStyle(
                       color: Colors.black,
-                      fontSize: 20
+                      fontSize: 24
                   ),
                 ),//这// 里填点数
                 Spacer(),
                 Container(
-                  height: 70,
+                  height: PhoneHeight * 0.08571,
                   child: Row(
                     children: [
                       Text("emo技能:",style: TextStyle(
@@ -134,7 +137,7 @@ class _ChosenModeState extends State<ChosenMode> {
                   ),
                 ),
                 Container(
-                  height: 70,
+                  height: PhoneHeight * 0.08571,
 
                   child: Row(
                     children: [
@@ -166,7 +169,7 @@ class _ChosenModeState extends State<ChosenMode> {
                         //把data换成变量
                           child:Text("$knowledge",style: TextStyle(
                               color: Colors.black,
-                              fontSize: 20
+                              fontSize: 18
                           ),)
                       ),
                       RawMaterialButton(
@@ -193,7 +196,7 @@ class _ChosenModeState extends State<ChosenMode> {
                   ),
                 ),
                 Container(
-                  height: 70,
+                  height: PhoneHeight * 0.08571,
 
                   child: Row(
                     children: [
@@ -225,7 +228,7 @@ class _ChosenModeState extends State<ChosenMode> {
                         //把data换成变量
                           child:Text("$sociality",style: TextStyle(
                               color: Colors.black,
-                              fontSize: 20
+                              fontSize: 17
                           ),)
                       ),
                       RawMaterialButton(
@@ -251,13 +254,13 @@ class _ChosenModeState extends State<ChosenMode> {
                   ),
                 ),
                 Container(
-                  height: 70,
+                  height: PhoneHeight * 0.08571,
 
                   child: Row(
                     children: [
                       Text("摸鱼技能:",style: TextStyle(
                           color: Colors.black,
-                          fontSize: 18
+                          fontSize: 17
                       ),),
                       RawMaterialButton(
                         onPressed: () {
@@ -283,7 +286,7 @@ class _ChosenModeState extends State<ChosenMode> {
                         //把data换成变量
                           child:Text("$fish",style: TextStyle(
                               color: Colors.black,
-                              fontSize: 20
+                              fontSize: 17
                           ),)
                       ),
                       RawMaterialButton(
@@ -311,9 +314,11 @@ class _ChosenModeState extends State<ChosenMode> {
                 const Spacer(), //这里填点数
                 GestureDetector(
                   onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => ChosenSchool
-                          (knowledge: knowledge,emo: emo,fish: fish,sociality: sociality,name: name,)));
+                    Navigator.of(context).pushAndRemoveUntil(
+                      MaterialPageRoute(builder: (context) => ChosenSchool
+                        (knowledge: knowledge,emo: emo,fish: fish,sociality: sociality,name: name,)),
+                          (Route<dynamic> route) => false,
+                    );
                   },
                   child: Container(
                     color: Colors.black,

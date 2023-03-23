@@ -13,6 +13,9 @@ class _ChoseGameModeState extends State<ChoseGameMode>{
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    double PhoneWidth = size.width;
+    double PhoneHeight = size.height;
     String name = widget.name;
     return Container(
         decoration: const BoxDecoration(
@@ -22,21 +25,21 @@ class _ChoseGameModeState extends State<ChoseGameMode>{
 
             )
         ),
-        padding: const EdgeInsets.only(top: 42,left: 41),
+        padding: EdgeInsets.only(top: PhoneHeight * 0.05142647,left: PhoneWidth * 0.1088688),
         child: Column(
           children: [
             const Spacer(),
             Row(
                 children:[
                   SizedBox(
-                    height: 105,
-                    width: 230,
+                    height: PhoneHeight * 0.12856618,
+                    width: PhoneWidth * 0.6107275624,
                     child: Container(
                       alignment: const Alignment(0,0),
                       padding: const EdgeInsets.all(6),
                       child: Column(
                           children: [
-                            const Text("请问你希望如何选择重开后的专业？",
+                            const Text("请问你希望如何选择\n重开后的专业？",
                             style: TextStyle(
                                 decoration: TextDecoration.none,
                               color: Colors.black,
@@ -50,10 +53,13 @@ class _ChoseGameModeState extends State<ChoseGameMode>{
                                 const Spacer(),
                                 GestureDetector(
                                   onTap: () {
-                                    Navigator.of(context).push(MaterialPageRoute(builder: (context) =>  ChosenMode(name: name,)));
+                                    Navigator.of(context).pushAndRemoveUntil(
+                                      MaterialPageRoute(builder: (context) => ChosenMode(name: name,)),
+                                          (Route<dynamic> route) => false,
+                                    );
                                   },
                                   child: Container(
-                                    width: 80,
+                                    width: 0.212426978 * PhoneWidth,
                                     height: 30,
                                     alignment: const Alignment(0,0),
                                     color: Colors.black,
@@ -73,7 +79,7 @@ class _ChoseGameModeState extends State<ChoseGameMode>{
                                     Navigator.of(context).push(MaterialPageRoute(builder: (context) => RandomMode(name: name,)));
                                   },
                                   child: Container(
-                                    width: 80,
+                                    width: 0.212426978 * PhoneWidth,
                                     height: 30,
                                     alignment: const Alignment(0,0),
                                     color: Colors.black,
