@@ -260,7 +260,7 @@ class _ChosenModeState extends State<ChosenMode> {
                     children: [
                       Text("摸鱼技能:",style: TextStyle(
                           color: Colors.black,
-                          fontSize: 17
+                          fontSize: 18
                       ),),
                       RawMaterialButton(
                         onPressed: () {
