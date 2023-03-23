@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:restart/loading/loading_third.dart';
 import 'dio.dart';
 import 'model/event_data.dart';
-import 'back_pack.dart';
+import 'model/back_pack.dart';
 
+//定义各个变量
 int cnt = 0;
 int knowledge = 0;
 int sociality = 0;
@@ -12,7 +13,9 @@ int emo = 0;
 int majorNumber = 0;
 String event = " ";
 String impact = " ";
+//判断技能点、专业代号有无初始化过
 bool skillinit = false;
+//塞入初始内容
 List<Widget> eventlist = [
   SizedBox(
     width: 280,
@@ -59,6 +62,9 @@ class GamePage extends StatefulWidget {
 class _GamePageState extends State<GamePage> {
   Future<Data> initGetData() async {
     var data = await DioService.getData(widget.majorNumber);
+    //
+    //获取到数据后刷新页面
+    //
     setState(() {
 
     });
@@ -82,9 +88,15 @@ class _GamePageState extends State<GamePage> {
     return FutureBuilder<Data>(
       future: initGetData(),
       builder: (context, AsyncSnapshot<Data> snapshot) {
+        //
+        //若还没得到数据
+        //
         if (!snapshot.hasData) {
           return CircularProgressIndicator();
         }
+        //
+        //若得到数据
+        //
         var _data = snapshot.data!;
         return Container(
           height: PhoneHeight,
@@ -128,6 +140,9 @@ class _GamePageState extends State<GamePage> {
                       SizedBox(
                           width: PhoneWidth * 0.28,
                           height: PhoneHeight * 0.12244398,
+                          //
+                          //”我的小书包“界面未完成，敬请期待
+                          //
                           child: GestureDetector(
                             onTap: () {
                               showDialog(
@@ -157,14 +172,6 @@ class _GamePageState extends State<GamePage> {
                                                 Navigator.of(context).pop(true);
                                               },
                                               child: const Text('确定')),
-                                        ),
-                                        Padding(
-                                          padding: const EdgeInsets.all(8.0),
-                                          child: ElevatedButton(
-                                              onPressed: () {
-                                                Navigator.of(context).pop();
-                                              },
-                                              child: const Text('取消')),
                                         ),
                                       ],
                                     );
@@ -212,6 +219,9 @@ class _GamePageState extends State<GamePage> {
                     border: Border.all(color: Colors.black, width: 3),
                     color: Colors.white,
                   ),
+                  //
+                  //事件栏
+                  //
                   child: Column(
                     children: <Widget>[
                       Expanded(
@@ -222,21 +232,29 @@ class _GamePageState extends State<GamePage> {
                       ),
                       GestureDetector(
                         onTap: () {
+                          //点击后缓冲0.4秒
                           Future.delayed(const Duration(milliseconds: 400), (){
                             initGetData();
-                            if(cnt == 0)
+                            if(cnt == 0)//若第一次点击初始化技能点、专业代号
                               skillinit = false;
+                            //缓冲0.6秒
                             Future.delayed(const Duration(milliseconds: 600), (){
                               setState(() {
 
                               });
                               cnt++;
+                              //
+                              //更新四个技能点以及事件、事件效果
+                              //
                               knowledge = (knowledge + _data.effect.knowledge);
                               sociality = (sociality + _data.effect.sociality);
                               fish = (fish + _data.effect.fish);
                               emo = (emo + _data.effect.emo);
                               event = _data.context;
                               impact = _data.effect.text;
+                              //
+                              //事件列表增加事件
+                              //
                               eventlist.add(
                                 SizedBox(
                                   child: Column(
@@ -259,13 +277,18 @@ class _GamePageState extends State<GamePage> {
                               );
                             });
                           });
+                          //
+                          //周期结束后跳转到下一界面
+                          //
                           if(cnt > 11) {
                             Navigator.pushReplacement(context,
                               MaterialPageRoute(builder: (BuildContext context) {
                                 return LoadPageThird
                                   (name: name,majorNumber: majorNumber, fish: fish, knowledge: knowledge, emo: emo, sociality: sociality,);
                               },),);
-
+                            //
+                            //初始化
+                            //
                             cnt = 0;
                             eventlist.clear();
                             eventlist.add(

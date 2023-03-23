@@ -70,6 +70,9 @@ class _GameStartState extends State<GameStart> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              //
+              //弹出框，敬请期待
+              //
               GestureDetector(
                 onTap: () {
                   showDialog(
@@ -100,14 +103,6 @@ class _GameStartState extends State<GameStart> {
                                   },
                                   child: const Text('确定')),
                             ),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: ElevatedButton(
-                                  onPressed: () {
-                                    Navigator.of(context).pop();
-                                  },
-                                  child: const Text('取消')),
-                            ),
                           ],
                         );
                       }
@@ -127,6 +122,9 @@ class _GameStartState extends State<GameStart> {
                 ),
               ),
               Spacer(),
+              //
+              //弹出框，敬请期待
+              //
               GestureDetector(
                 onTap: () {
                   showDialog(
@@ -157,14 +155,6 @@ class _GameStartState extends State<GameStart> {
                                   },
                                   child: const Text('确定')),
                             ),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: ElevatedButton(
-                                  onPressed: () {
-                                    Navigator.of(context).pop();
-                                  },
-                                  child: const Text('取消')),
-                            ),
                           ],
                         );
                       }
@@ -193,7 +183,6 @@ class _GameStartState extends State<GameStart> {
                   (knowledge: knowledge,emo: emo,fish: fish,sociality: sociality,name: name,majorNumber: majorNumber)),
                     (Route<dynamic> route) => false,
               );
-
             },
             child: Container(
               alignment: Alignment.center,
@@ -213,7 +202,6 @@ class _GameStartState extends State<GameStart> {
               ),
             ),
           )
-
         ],
       ),
     );

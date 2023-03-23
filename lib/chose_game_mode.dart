@@ -32,8 +32,8 @@ class _ChoseGameModeState extends State<ChoseGameMode>{
             Row(
                 children:[
                   SizedBox(
-                    height: PhoneHeight * 0.12856618,
-                    width: PhoneWidth * 0.6107275624,
+                    height: PhoneHeight * 0.125,
+                    width: PhoneWidth * 0.61,
                     child: Container(
                       alignment: const Alignment(0,0),
                       padding: const EdgeInsets.all(6),
@@ -51,6 +51,9 @@ class _ChoseGameModeState extends State<ChoseGameMode>{
                             Row(
                               children: [
                                 const Spacer(),
+                                //
+                                //自由模式
+                                //
                                 GestureDetector(
                                   onTap: () {
                                     Navigator.of(context).pushAndRemoveUntil(
@@ -74,6 +77,9 @@ class _ChoseGameModeState extends State<ChoseGameMode>{
                                   ),
                                 ),
                                 const Spacer(),
+                                //
+                                //随机模式
+                                //
                                 GestureDetector(
                                   onTap: () {
                                     Navigator.of(context).push(MaterialPageRoute(builder: (context) => RandomMode(name: name,)));

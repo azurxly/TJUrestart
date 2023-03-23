@@ -24,7 +24,9 @@ class Report extends StatefulWidget {
 
 class _ReportState extends State<Report> {
   int _counter = 0;
-
+  //
+  //点击计数器
+  //
   void _incrementCounter() {
     setState(() {
       _counter++;
@@ -36,6 +38,7 @@ class _ReportState extends State<Report> {
     final size = MediaQuery.of(context).size;
     double PhoneWidth = size.width;
     double PhoneHeight = size.height;
+    //传参
     int majorNumber = widget.majorNumber;
     int emo = widget.emo;
     int fish = widget.fish;
@@ -43,6 +46,9 @@ class _ReportState extends State<Report> {
     int knowledge = widget.knowledge;
     String major = ' ';
     String name = widget.name;
+    //
+    //得到专业代号
+    //
     switch (majorNumber){
       case 1:
         major = '机械工程学院';
@@ -104,6 +110,9 @@ class _ReportState extends State<Report> {
       case 20:
         major = '地球系统科学学院';
     }
+    //
+    //初始化头衔
+    //
     String title1 = '活得好好的';
     String title2 = '未被退学';
     int count = 0;
@@ -176,6 +185,9 @@ class _ReportState extends State<Report> {
                 ),
               ),
             ),
+            //
+            //点击一次后，出现技能统计
+            //
             Visibility(
               visible: _counter>=1,
                 child:Positioned(
@@ -201,6 +213,9 @@ class _ReportState extends State<Report> {
                   ),
                 )
             ),
+            //
+            //点击第二次，查看头衔
+            //
             Visibility(
                 visible: _counter>=2,
                 child:Positioned(
@@ -226,6 +241,9 @@ class _ReportState extends State<Report> {
                   ),
                 )
             ),
+            //
+            //点击第三次，出现重开/关闭界面
+            //
             Visibility(
                 visible: _counter>=3,
                 child:Positioned(

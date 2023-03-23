@@ -25,6 +25,9 @@ class _ChosenSchoolState extends State<ChosenSchool> {
 
   @override
   Widget build(BuildContext context) {
+    //
+    //专业数据
+    //
     List<Widget> schoollist = [
       SizedBox(
         width: 400,
@@ -553,6 +556,9 @@ class _ChosenSchoolState extends State<ChosenSchool> {
             height: 0.7958858822 * PhoneHeight,
             child:Column(
               children: [
+                //
+                //专业栏
+                //
                 Container(
                   height: 0.59 * PhoneHeight,
                   child:

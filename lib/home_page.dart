@@ -27,7 +27,6 @@ class _HomePageState extends State<HomePage> {
             SizedBox(
               height: PhoneHeight * 0.061222,
             ),
-
              SizedBox(
               height: PhoneHeight * 0.15737465,
 
@@ -35,14 +34,12 @@ class _HomePageState extends State<HomePage> {
                 "如果再来一次……             "
                     '\n'
                     "如果……                ",
-
                 textAlign:TextAlign.left ,
                 style: TextStyle(
                     decoration: TextDecoration.none,
                     color:Colors.white,
                     fontSize: 25,
                     fontWeight: FontWeight.bold
-
                 ),
               ),
             ),
@@ -54,8 +51,6 @@ class _HomePageState extends State<HomePage> {
             const Spacer(),
             const Text(
               "点击空白处继续",
-
-
               style: TextStyle(
                   decoration: TextDecoration.none,
                   color:Colors.grey,
@@ -65,7 +60,6 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ],
-
         ),
       ),
     );

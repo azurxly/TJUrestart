@@ -30,9 +30,10 @@ class _NamePageState extends State<NamePage> {
             const Spacer(),
             Row(
               children:[
+                //文本框
                 SizedBox(
                 height: PhoneHeight * 0.12856618,
-                width: PhoneWidth * 0.6107275624,
+                width: PhoneWidth * 0.54,
                   child: Container(
                     alignment: const Alignment(0,0),
                     child: TextField(

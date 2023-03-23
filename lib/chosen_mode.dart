@@ -76,7 +76,7 @@ class _ChosenModeState extends State<ChosenMode> {
                       color: Colors.black,
                       fontSize: 24
                   ),
-                ),//这// 里填点数
+                ),
                 Spacer(),
                 Container(
                   height: PhoneHeight * 0.08571,
@@ -87,6 +87,9 @@ class _ChosenModeState extends State<ChosenMode> {
                           fontSize: 18
                       ),),
                       RawMaterialButton(
+                        //
+                        //这里代表变量减少（emo）
+                        //
                         onPressed: () {
                           if(emo > 0) {
                             emo--;
@@ -95,7 +98,7 @@ class _ChosenModeState extends State<ChosenMode> {
 
                             });
                           }
-                            },//这里代表变量减少（emo）
+                            },
                         fillColor: Colors.white,
                         child: Icon(
                           Icons.remove,
@@ -114,6 +117,9 @@ class _ChosenModeState extends State<ChosenMode> {
                           ),)
                       ),
                       RawMaterialButton(
+                        //
+                        //这里代表变量增加（emo）
+                        //
                         onPressed: () {
                           if(sumpoint>0){
                             sumpoint--;
@@ -122,7 +128,7 @@ class _ChosenModeState extends State<ChosenMode> {
 
                             });
                           }
-                        },//这里代表变量增加
+                        },
                         fillColor: Colors.white,
                         child: Icon(
                           Icons.add,
@@ -146,6 +152,9 @@ class _ChosenModeState extends State<ChosenMode> {
                           fontSize: 18
                       ),),
                       RawMaterialButton(
+                        //
+                        //这里代表变量减少（知识）
+                        //
                         onPressed: () {
                           if(knowledge > 0){
                             knowledge--;
@@ -154,7 +163,7 @@ class _ChosenModeState extends State<ChosenMode> {
 
                             });
                           }
-                        },//这里代表变量减少（知识）
+                        },
                         fillColor: Colors.white,
                         child: Icon(
                           Icons.remove,
@@ -166,13 +175,15 @@ class _ChosenModeState extends State<ChosenMode> {
 
                       ),
                       Container(
-                        //把data换成变量
                           child:Text("$knowledge",style: TextStyle(
                               color: Colors.black,
                               fontSize: 18
                           ),)
                       ),
                       RawMaterialButton(
+                        //
+                        //这里代表变量增加（知识）
+                        //
                         onPressed: () {
                           if(sumpoint > 0){
                             sumpoint--;
@@ -181,7 +192,7 @@ class _ChosenModeState extends State<ChosenMode> {
 
                             });
                           }
-                        },//这里代表变量增加
+                        },
                         fillColor: Colors.white,
                         child: Icon(
                           Icons.add,
@@ -205,6 +216,9 @@ class _ChosenModeState extends State<ChosenMode> {
                           fontSize: 18
                       ),),
                       RawMaterialButton(
+                        //
+                        //这里代表变量减少（社交）
+                        //
                         onPressed: () {
                           if(sociality > 0){
                             sociality--;
@@ -213,7 +227,7 @@ class _ChosenModeState extends State<ChosenMode> {
 
                             });
                           }
-                        },//这里代表变量减少（社交）
+                        },
                         fillColor: Colors.white,
                         child: Icon(
                           Icons.remove,
@@ -225,13 +239,15 @@ class _ChosenModeState extends State<ChosenMode> {
 
                       ),
                       Container(
-                        //把data换成变量
                           child:Text("$sociality",style: TextStyle(
                               color: Colors.black,
                               fontSize: 17
                           ),)
                       ),
                       RawMaterialButton(
+                        //
+                        //这里代表变量增加（社交）
+                        //
                         onPressed: () {
                           if(sumpoint > 0){
                             sumpoint--;
@@ -240,7 +256,7 @@ class _ChosenModeState extends State<ChosenMode> {
 
                             });
                           }
-                        },//这里代表变量增加
+                        },
                         fillColor: Colors.white,
                         child: Icon(
                           Icons.add,
@@ -263,6 +279,9 @@ class _ChosenModeState extends State<ChosenMode> {
                           fontSize: 18
                       ),),
                       RawMaterialButton(
+                        //
+                        //这里代表变量减少（摸鱼）
+                        //
                         onPressed: () {
                           if(fish > 0){
                             fish--;
@@ -271,7 +290,7 @@ class _ChosenModeState extends State<ChosenMode> {
 
                             });
                           }
-                        },//这里代表变量减少（摸鱼）
+                        },
                         fillColor: Colors.white,
                         child: Icon(
                           Icons.remove,
@@ -283,13 +302,15 @@ class _ChosenModeState extends State<ChosenMode> {
 
                       ),
                       Container(
-                        //把data换成变量
                           child:Text("$fish",style: TextStyle(
                               color: Colors.black,
                               fontSize: 17
                           ),)
                       ),
                       RawMaterialButton(
+                        //
+                        //这里代表变量增加（摸鱼）
+                        //
                         onPressed: () {
                           if(sumpoint > 0){
                             sumpoint--;
@@ -298,7 +319,7 @@ class _ChosenModeState extends State<ChosenMode> {
 
                             });
                           }
-                        },//这里代表变量增加
+                        },
                         fillColor: Colors.white,
                         child: Icon(
                           Icons.add,
@@ -311,7 +332,7 @@ class _ChosenModeState extends State<ChosenMode> {
                     ],
                   ),
                 ),
-                const Spacer(), //这里填点数
+                const Spacer(),
                 GestureDetector(
                   onTap: () {
                     Navigator.of(context).pushAndRemoveUntil(
@@ -334,7 +355,6 @@ class _ChosenModeState extends State<ChosenMode> {
                       ),
                     ),
                   ),
-
                 )
               ],
             ),

@@ -18,12 +18,17 @@ class _RandomModeState extends State<RandomMode> {
     double PhoneWidth = size.width;
     double PhoneHeight = size.height;
     String name = widget.name;
+    //随机生成专业代号
     int majorNumber = Random().nextInt(20) + 1;
     String major = ' ';
+    //随机生成四项技能点
     int fish = Random().nextInt(9)+0;
     int sociality = Random().nextInt(9 - fish) + 0;
     int knowledge = Random().nextInt(9 - fish - sociality) + 0;
     int emo = 10 - fish -sociality - knowledge;
+    //
+    //根据专业代号得到专业
+    //
     switch (majorNumber){
       case 1:
         major = '机械工程学院';
@@ -135,7 +140,9 @@ class _RandomModeState extends State<RandomMode> {
                   ),
                 ),
                 const Spacer(),
-                //这里填点数
+                //
+                //刷新数据
+                //
                 GestureDetector(
                   onTap: () {
                     setState(() {
@@ -157,7 +164,6 @@ class _RandomModeState extends State<RandomMode> {
                     ),
                   ),
                 ),
-                const Spacer(),
                 GestureDetector(
                   onTap: () {
                     Navigator.of(context).pushAndRemoveUntil(
