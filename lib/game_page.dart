@@ -94,6 +94,7 @@ class _GamePageState extends State<GamePage> {
           child: Column(
             children: [
               Container(
+                height: PhoneHeight * 0.15,
                 decoration: const BoxDecoration(boxShadow: [
                   BoxShadow(
                       blurRadius: 5, spreadRadius: 0.8, color: Colors.grey)
@@ -114,7 +115,7 @@ class _GamePageState extends State<GamePage> {
                         const TextStyle(
                             decoration: TextDecoration.none,
                             color: Colors.black,
-                            fontSize: 16),
+                            fontSize: 17),
                       ),
                       const Spacer(),
                       SizedBox(
@@ -125,13 +126,50 @@ class _GamePageState extends State<GamePage> {
                         ),
                       ),
                       SizedBox(
-                          width: 100,
-                          height: 100,
+                          width: PhoneWidth * 0.28,
+                          height: PhoneHeight * 0.12244398,
                           child: GestureDetector(
                             onTap: () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) => BackPack
-                                    (knowledge: knowledge,emo: emo,fish: fish,sociality: sociality,name: name, majorNumber: majorNumber,)));
+                              showDialog(
+                                  barrierDismissible: true, //点击空白是否退出
+                                  context: context,
+                                  builder: (context) {
+                                    return AlertDialog(
+                                      // titlePadding: EdgeInsets.all(10),
+                                      elevation: 10,
+                                      backgroundColor: Colors.white, //背景颜色
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(20)), //设置形状
+
+                                      title: const Text('敬请期待！'),
+                                      // icon: Icon(Icons.work_rounded),
+                                      content: const Padding(
+                                        padding: EdgeInsets.all(8.0),
+                                        child: Text('在以后的版本中选择此项会进入“背包”界面，里面有随机事件获得的物品，不同物品存在不同的效果！'),
+                                      ),
+                                      contentTextStyle: const TextStyle(
+                                          color: Colors.black), //文本内容的text样式
+                                      actions: [
+                                        Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: ElevatedButton(
+                                              onPressed: () {
+                                                Navigator.of(context).pop(true);
+                                              },
+                                              child: const Text('确定')),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: ElevatedButton(
+                                              onPressed: () {
+                                                Navigator.of(context).pop();
+                                              },
+                                              child: const Text('取消')),
+                                        ),
+                                      ],
+                                    );
+                                  }
+                              );
                             },
                             child: Container(
                               alignment: Alignment.center,
@@ -168,7 +206,7 @@ class _GamePageState extends State<GamePage> {
                 ]),
                 child: Container(
                   width: double.infinity,
-                  height: PhoneHeight * 0.73466389,
+                  height: PhoneHeight * 0.7,
                   padding: const EdgeInsets.only(left: 5),
                   decoration: BoxDecoration(
                     border: Border.all(color: Colors.black, width: 3),
@@ -184,42 +222,42 @@ class _GamePageState extends State<GamePage> {
                       ),
                       GestureDetector(
                         onTap: () {
-                          print('tap');
-                          eventlist.forEach((e) {print(e);});
-                          initGetData();
-                          if(cnt == 0)
-                            skillinit = false;
-                          Future.delayed(const Duration(milliseconds: 1000), (){
-                            setState(() {
+                          Future.delayed(const Duration(milliseconds: 400), (){
+                            initGetData();
+                            if(cnt == 0)
+                              skillinit = false;
+                            Future.delayed(const Duration(milliseconds: 600), (){
+                              setState(() {
 
-                            });
-                            cnt++;
-                            knowledge = (knowledge + _data.effect.knowledge);
-                            sociality = (sociality + _data.effect.sociality);
-                            fish = (fish + _data.effect.fish);
-                            emo = (emo + _data.effect.emo);
-                            event = _data.context;
-                            impact = _data.effect.text;
-                            eventlist.add(
-                              SizedBox(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children:[
-                                    Text(
-                                      '第$cnt个月——————————————————\n$event\n$impact\n\n',
-                                      softWrap: true,
-                                      textAlign: TextAlign.center,
-                                      style: const TextStyle(
-                                        decoration: TextDecoration.none,
-                                        color: Colors.black,
-                                        fontSize: 18,
-                                        height: 1.8,
+                              });
+                              cnt++;
+                              knowledge = (knowledge + _data.effect.knowledge);
+                              sociality = (sociality + _data.effect.sociality);
+                              fish = (fish + _data.effect.fish);
+                              emo = (emo + _data.effect.emo);
+                              event = _data.context;
+                              impact = _data.effect.text;
+                              eventlist.add(
+                                SizedBox(
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children:[
+                                      Text(
+                                        '第$cnt个月——————————————————\n$event\n$impact\n\n',
+                                        softWrap: true,
+                                        textAlign: TextAlign.center,
+                                        style: const TextStyle(
+                                          decoration: TextDecoration.none,
+                                          color: Colors.black,
+                                          fontSize: 18,
+                                          height: 1.8,
+                                        ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
-                              ),
-                            );
+                              );
+                            });
                           });
                           if(cnt > 11) {
                             Navigator.pushReplacement(context,

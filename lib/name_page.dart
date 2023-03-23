@@ -37,6 +37,7 @@ class _NamePageState extends State<NamePage> {
                     alignment: const Alignment(0,0),
                     child: TextField(
                       controller: nameController,
+                      maxLength: 7,
                       onChanged: (value){
                         nameController.text = value.toString();
                         name = nameController.text;

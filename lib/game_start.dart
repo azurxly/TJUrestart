@@ -70,30 +70,118 @@ class _GameStartState extends State<GameStart> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(
-                width: 130,
-                height: 30,
-                color: Colors.white,
-                child: Text("欣然接受",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                      decoration: TextDecoration.none,
-                      fontSize: 20,
-                      color: Colors.black
-                  ),),
+              GestureDetector(
+                onTap: () {
+                  showDialog(
+                    barrierDismissible: true, //点击空白是否退出
+                    context: context,
+                      builder: (context) {
+                        return AlertDialog(
+                          // titlePadding: EdgeInsets.all(10),
+                          elevation: 10,
+                          backgroundColor: Colors.white, //背景颜色
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20)), //设置形状
+
+                          title: const Text('敬请期待！'),
+                          // icon: Icon(Icons.work_rounded),
+                          content: const Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Text('在以后的版本中选择此项会得到道具“学生卡”，存放在“我的小背包”中！'),
+                          ),
+                          contentTextStyle: const TextStyle(
+                              color: Colors.black), //文本内容的text样式
+                          actions: [
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: ElevatedButton(
+                                  onPressed: () {
+                                    Navigator.of(context).pop(true);
+                                  },
+                                  child: const Text('确定')),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: ElevatedButton(
+                                  onPressed: () {
+                                    Navigator.of(context).pop();
+                                  },
+                                  child: const Text('取消')),
+                            ),
+                          ],
+                        );
+                      }
+                  );
+                },
+                child: Container(
+                  width: 130,
+                  height: 30,
+                  color: Colors.white,
+                  child: Text("欣然接受",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        decoration: TextDecoration.none,
+                        fontSize: 20,
+                        color: Colors.black
+                    ),),
+                ),
               ),
               Spacer(),
-              Container(
-                width: 130,
-                height: 30,
-                color: Colors.white,
-                child: Text("不予理会",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                      decoration: TextDecoration.none,
-                      fontSize: 20,
-                      color: Colors.black
-                  ),),
+              GestureDetector(
+                onTap: () {
+                  showDialog(
+                      barrierDismissible: true, //点击空白是否退出
+                      context: context,
+                      builder: (context) {
+                        return AlertDialog(
+                          // titlePadding: EdgeInsets.all(10),
+                          elevation: 10,
+                          backgroundColor: Colors.white, //背景颜色
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20)), //设置形状
+
+                          title: const Text('敬请期待！'),
+                          // icon: Icon(Icons.work_rounded),
+                          content: const Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Text('在以后的版本中选择此项会无法得到道具“学生卡”，直接进入游戏！'),
+                          ),
+                          contentTextStyle: const TextStyle(
+                              color: Colors.black), //文本内容的text样式
+                          actions: [
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: ElevatedButton(
+                                  onPressed: () {
+                                    Navigator.of(context).pop(true);
+                                  },
+                                  child: const Text('确定')),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: ElevatedButton(
+                                  onPressed: () {
+                                    Navigator.of(context).pop();
+                                  },
+                                  child: const Text('取消')),
+                            ),
+                          ],
+                        );
+                      }
+                  );
+                },
+                child: Container(
+                  width: 130,
+                  height: 30,
+                  color: Colors.white,
+                  child: Text("不予理会",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        decoration: TextDecoration.none,
+                        fontSize: 20,
+                        color: Colors.black
+                    ),),
+                ),
               ),
             ],
           ),
