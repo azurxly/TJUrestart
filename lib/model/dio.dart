@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'model/event_data.dart';
+import 'event_data.dart';
 
 
 class DioService{

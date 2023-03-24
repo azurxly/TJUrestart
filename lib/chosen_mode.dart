@@ -73,6 +73,7 @@ class _ChosenModeState extends State<ChosenMode> {
               children: [
                 Text("当前可用技能点：$sumpoint",
                   style: TextStyle(
+                      decoration: TextDecoration.none,
                       color: Colors.black,
                       fontSize: 24
                   ),
@@ -83,6 +84,7 @@ class _ChosenModeState extends State<ChosenMode> {
                   child: Row(
                     children: [
                       Text("emo技能:",style: TextStyle(
+                          decoration: TextDecoration.none,
                           color: Colors.black,
                           fontSize: 18
                       ),),
@@ -112,6 +114,7 @@ class _ChosenModeState extends State<ChosenMode> {
                       Container(
                         //把data换成变量
                           child:Text("$emo",style: TextStyle(
+                              decoration: TextDecoration.none,
                               color: Colors.black,
                               fontSize: 20
                           ),)
@@ -148,6 +151,7 @@ class _ChosenModeState extends State<ChosenMode> {
                   child: Row(
                     children: [
                       Text("知识技能:",style: TextStyle(
+                          decoration: TextDecoration.none,
                           color: Colors.black,
                           fontSize: 18
                       ),),
@@ -176,6 +180,7 @@ class _ChosenModeState extends State<ChosenMode> {
                       ),
                       Container(
                           child:Text("$knowledge",style: TextStyle(
+                              decoration: TextDecoration.none,
                               color: Colors.black,
                               fontSize: 18
                           ),)
@@ -212,6 +217,7 @@ class _ChosenModeState extends State<ChosenMode> {
                   child: Row(
                     children: [
                       Text("社交技能:",style: TextStyle(
+                          decoration: TextDecoration.none,
                           color: Colors.black,
                           fontSize: 18
                       ),),
@@ -240,6 +246,7 @@ class _ChosenModeState extends State<ChosenMode> {
                       ),
                       Container(
                           child:Text("$sociality",style: TextStyle(
+                              decoration: TextDecoration.none,
                               color: Colors.black,
                               fontSize: 17
                           ),)
@@ -275,6 +282,7 @@ class _ChosenModeState extends State<ChosenMode> {
                   child: Row(
                     children: [
                       Text("摸鱼技能:",style: TextStyle(
+                          decoration: TextDecoration.none,
                           color: Colors.black,
                           fontSize: 18
                       ),),
@@ -303,6 +311,7 @@ class _ChosenModeState extends State<ChosenMode> {
                       ),
                       Container(
                           child:Text("$fish",style: TextStyle(
+                              decoration: TextDecoration.none,
                               color: Colors.black,
                               fontSize: 17
                           ),)

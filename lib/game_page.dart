@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:restart/loading/loading_third.dart';
-import 'dio.dart';
+import 'package:restart/loading_third.dart';
+import 'model/dio.dart';
 import 'model/event_data.dart';
-import 'model/back_pack.dart';
 
 //定义各个变量
 int cnt = 0;
@@ -13,6 +12,7 @@ int emo = 0;
 int majorNumber = 0;
 String event = " ";
 String impact = " ";
+String underwords = "进行下一个月";
 //判断技能点、专业代号有无初始化过
 bool skillinit = false;
 //塞入初始内容
@@ -171,6 +171,14 @@ class _GamePageState extends State<GamePage> {
                                               onPressed: () {
                                                 Navigator.of(context).pop(true);
                                               },
+                                              style: ButtonStyle(
+                                                  backgroundColor: MaterialStateProperty.resolveWith((states){
+                                                    if(states.contains(MaterialState.pressed)){
+                                                      return Colors.blueAccent;
+                                                    }
+                                                    return Colors.black;
+                                                  })
+                                              ),
                                               child: const Text('确定')),
                                         ),
                                       ],
@@ -224,6 +232,23 @@ class _GamePageState extends State<GamePage> {
                   //
                   child: Column(
                     children: <Widget>[
+                      Container(
+                        child: Text(
+                          "大一学年",
+                          style: const TextStyle(
+                            decoration: TextDecoration.none,
+                            color: Colors.black,
+                            fontSize: 25,
+                            height: 1.8,
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 3,
+                        child: Container(
+                          color: Colors.black,
+                        ),
+                      ),
                       Expanded(
                         child: ListView(
                           children: eventlist,
@@ -243,6 +268,8 @@ class _GamePageState extends State<GamePage> {
 
                               });
                               cnt++;
+                              if(cnt == 12)
+                                underwords = "查看我的大学报告！";
                               //
                               //更新四个技能点以及事件、事件效果
                               //
@@ -330,6 +357,7 @@ class _GamePageState extends State<GamePage> {
                             //初始化
                             //
                             cnt = 0;
+                            underwords = "进行下一个月";
                             eventlist.clear();
                             eventlist.add(
                               SizedBox(
@@ -363,8 +391,8 @@ class _GamePageState extends State<GamePage> {
                           color: Colors.black,
                           height: 45,
                           width: double.infinity,
-                          child: const Text(
-                            "进行下一个月",
+                          child: Text(
+                            "$underwords",
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               decoration: TextDecoration.none,
