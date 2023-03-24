@@ -101,6 +101,14 @@ class _GameStartState extends State<GameStart> {
                                   onPressed: () {
                                     Navigator.of(context).pop(true);
                                   },
+                                  style: ButtonStyle(
+                                      backgroundColor: MaterialStateProperty.resolveWith((states){
+                                                if(states.contains(MaterialState.pressed)){
+                                                  return Colors.blueAccent;
+                                                }
+                                                return Colors.black;
+                                      })
+                                  ),
                                   child: const Text('确定')),
                             ),
                           ],
@@ -153,6 +161,14 @@ class _GameStartState extends State<GameStart> {
                                   onPressed: () {
                                     Navigator.of(context).pop(true);
                                   },
+                                  style: ButtonStyle(
+                                      backgroundColor: MaterialStateProperty.resolveWith((states){
+                                        if(states.contains(MaterialState.pressed)){
+                                          return Colors.blueAccent;
+                                        }
+                                        return Colors.black;
+                                      })
+                                  ),
                                   child: const Text('确定')),
                             ),
                           ],

@@ -233,12 +233,12 @@ class _GamePageState extends State<GamePage> {
                       GestureDetector(
                         onTap: () {
                           //点击后缓冲0.4秒
-                          Future.delayed(const Duration(milliseconds: 400), (){
+                          Future.delayed(const Duration(milliseconds: 500), (){
                             initGetData();
                             if(cnt == 0)//若第一次点击初始化技能点、专业代号
                               skillinit = false;
                             //缓冲0.6秒
-                            Future.delayed(const Duration(milliseconds: 600), (){
+                            Future.delayed(const Duration(milliseconds: 300), (){
                               setState(() {
 
                               });
@@ -255,6 +255,46 @@ class _GamePageState extends State<GamePage> {
                               //
                               //事件列表增加事件
                               //
+                              showDialog(
+                                  barrierDismissible: true, //点击空白是否退出
+                                  context: context,
+                                  builder: (context) {
+                                    return AlertDialog(
+                                      // titlePadding: EdgeInsets.all(10),
+                                      elevation: 10,
+                                      backgroundColor: Colors.white, //背景颜色
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(20)), //设置形状
+
+                                      title: Text('第$cnt个月'),
+                                      // icon: Icon(Icons.work_rounded),
+                                      content: Padding(
+                                        padding: EdgeInsets.all(8.0),
+                                        child: Text('$event\n$impact'),
+                                      ),
+                                      contentTextStyle: const TextStyle(
+                                          color: Colors.black), //文本内容的text样式
+                                      actions: [
+                                        Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: ElevatedButton(
+                                              onPressed: () {
+                                                Navigator.of(context).pop(true);
+                                              },
+                                              style: ButtonStyle(
+                                                  backgroundColor: MaterialStateProperty.resolveWith((states){
+                                                    if(states.contains(MaterialState.pressed)){
+                                                      return Colors.blueAccent;
+                                                    }
+                                                    return Colors.black;
+                                                  })
+                                              ),
+                                              child: const Text('确定')),
+                                        ),
+                                      ],
+                                    );
+                                  }
+                              );
                               eventlist.add(
                                 SizedBox(
                                   child: Column(
